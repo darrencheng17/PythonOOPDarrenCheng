@@ -1,0 +1,75 @@
+#Darren Cheng
+#Python OOP Example 3
+
+#product lists and defining the arrays
+product_names = ["hamburger", "cheeseburger", "small fries"]
+product_costs = [1.99, 1.49, 2.49]
+products_sold = [10, 5, 20]
+
+#search function
+def searchProduct():
+    product = input('Enter a product name')
+#if product is not in store
+    if product not in product_names:
+        print('''Sorry, we don't sell "'''+ product + '''"''')
+        #product is in store
+    else:
+        for i in range(len(product_names)):
+            if product == product_names[i]:
+                print('''We sell"''' + product_names[i] + '''"application for $''' + str(product_costs[i]))
+                if product == "prime numbers":
+                    print("We have sold 10 of those programs")
+                elif product == "multiplication tables":
+                    print("We have sold 5 of those programs")
+                elif product == "morgage calculator":
+                    print("We have sold 15 of those programs")
+                break
+    
+          
+def addProduct():
+    addedProduct = input("Enter a product name")
+    if addedProduct not in product_names:
+        product_names.append(addedProduct)
+        addedCost =input("Enter a product cost")
+        addedSold = input("How many of these progams have been sold?")
+        if addedSold < 0:
+            print("Invalid Amount. Try again.") 
+        if addedCost <= 0:
+            print("Invalid Amount. Try Again.")
+        
+        else:
+            product_costs.append(addedCost)
+            products_sold.append(
+            
+    else:
+        print("Sorry we already sell that program. Try again")
+        
+    
+def listProducts():
+    maxSpace = 0
+    for i in product_names:
+        if len(i) > maxSpace:
+            maxSpace = len(i)
+    for i in range(len(product_names)):
+        print('{message: <{width}}'.format(message=product_names[i], width=maxSpace + 3), end='')
+        print(product_costs[i], end= "\t")
+    
+#Main Loop
+selection = ''
+
+while True:
+    selection = input("(s)earch, (l)ist for or (q)uit: ")
+ 
+    if selection == 'q':
+        break
+    elif selection == 'l':
+        listProduct()
+    elif selection == 's':
+        searchProduct()
+    elif selection == 'a':
+        
+    else:
+        print('Invalid option, try again')
+    print()
+
+print("Thanks for looking at my programs!") 
